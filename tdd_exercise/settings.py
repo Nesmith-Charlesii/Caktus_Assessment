@@ -25,7 +25,7 @@ SECRET_KEY = '1-(86s^q+e7j5+ez9qz@8)yr(kb2pzt!1eb+(7x=(c3)435k-a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'tdd_exercise.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'caktusdb',
+        'USER': 'postgres',
+        'PASSWORD': 'nessiahfinesse',
+        'HOST': 'localhost',
+        'POST': ''
     }
 }
 
