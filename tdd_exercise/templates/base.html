@@ -5,27 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Crossword puzzle TDD exercise.">
     <title>{% block title %}Crossword Exercise{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/clue.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/clue.css' %}"/>
   </head>
 
   <body>
     <!-- Begin page content -->
     <main role="main" class="container">
       {% block content %}
-      <div class="clue_container">
+      <div class="clue-container">
         <div class="clue-header">
           <h1>Random Clue</h1>
         </div>
         <div class="clue-form">
           <div class="clue">
-            <h2>Information Regarding the Clue</h2>
+            <h3>{{display_clue.clue_text}}</h3>
           </div>
           <form method="POST" action="">
             {% csrf_token %}
-            <label for="guess"><strong>Take a Guess!</strong></label>
-            <input type="text" name="guess" id="_guess"/>
-            <input type="submit" id="submit-guess"/>
+            <div class="form-group">
+              <input class="form-control" type="text" name="guess" id="_guess"/>
+              <div class="clue-submit-button">
+                <input class="btn btn-outline-warning" type="submit" id="submit-guess" value="Answer"/>
+              </div>
+              </div>
           </form>
         </div>
       </div>
