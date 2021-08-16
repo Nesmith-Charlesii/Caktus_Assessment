@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'xword_data',
-    'xword_data.apps.XwordDataConfig'
+    'xword_data',
+    # 'xword_data.apps.XwordDataConfig'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +82,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'nessiahfinesse',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'POST': ''
     }
 }
 
