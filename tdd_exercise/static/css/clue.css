@@ -9,6 +9,10 @@ body {
     justify-content: center;
 }
 
+.clue-header {
+    margin-bottom: -10px;
+}
+
 form {
     display: flex;
     flex-direction: column;

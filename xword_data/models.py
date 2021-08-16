@@ -1,14 +1,17 @@
-# from django.db import models
+from django.db import models
 
 
 # Create your models here.
-class Clue:
+class Puzzle(models.Model):
+    title = models.CharField(max_length=255),
+    date = models.DateField(),
+    byline = models.CharField(max_length=255),
+    publisher = models.CharField(max_length=12)
+
+
+class Entry(models.Model):
     pass
 
 
-class Entry:
-    pass
-
-
-class Puzzle:
+class Clue(models.Model):
     pass
