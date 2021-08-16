@@ -12,7 +12,20 @@ class DrillView(View):
         clues = Clue.objects.all()
         display_clue = random.choice(clues)
         print(display_clue.clue_text)
+        entry = Entry.objects.get(id=display_clue.entry)
+        puzzle = Puzzle.objects.get(id=display_clue.puzzle)
+        print(entry.entry_text)
+        print(puzzle.title)
         context = {
-            'display_clue': display_clue
+            'display_clue': display_clue,
+            'entry': entry,
+            'puzzle': puzzle
         }
         return render(request, 'base.html', context)
+
+    def post(self, request):
+        pass
+
+
+class AnswerView(View):
+    pass

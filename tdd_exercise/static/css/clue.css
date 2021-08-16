@@ -36,6 +36,15 @@ body {
     letter-spacing: 1px
 }
 
+.clue h3 {
+    margin-bottom: 40px;
+}
+
+.clue p {
+    font-family: arial, sans-serif;
+    margin-top: -15px;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -44,16 +53,16 @@ body {
 }
 
 form input {
-    margin-top: 8px;
+    margin-top: 15px;
     width: 35vw !important;
 }
 
 .clue-submit-button {
+    margin-top: 15px;
     display: flex;
     justify-content: center;
 }
 
 #submit-guess {
-    margin-top: 20px;
     width: 10vw !important;
 }

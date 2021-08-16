@@ -21,6 +21,8 @@
         <div class="clue-form">
           <div class="clue">
             <h3>{{display_clue.clue_text}}</h3>
+            <p>Word Length: {{entry.entry_text|length}}</p>
+            <p>From Puzzle: {{puzzle.title}}</p>
           </div>
           <form method="POST" action="">
             {% csrf_token %}
