@@ -10,8 +10,11 @@ class Puzzle(models.Model):
 
 
 class Entry(models.Model):
-    pass
+    entry_text = models.CharField(unique=True, max_length=50)
 
 
 class Clue(models.Model):
-    pass
+    entry = models.IntegerField(),
+    puzzle = models.IntegerField(),
+    clue_text = models.CharField(max_length=512),
+    theme = models.BooleanField(default=False)

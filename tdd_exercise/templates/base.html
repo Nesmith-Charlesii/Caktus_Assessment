@@ -21,7 +21,8 @@
           <div class="clue">
             <h2>Information Regarding the Clue</h2>
           </div>
-          <form>
+          <form method="POST" action="">
+            {% csrf_token %}
             <label for="guess"><strong>Take a Guess!</strong></label>
             <input type="text" name="guess" id="_guess"/>
             <input type="submit" id="submit-guess"/>
