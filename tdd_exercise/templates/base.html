@@ -4,14 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Crossword puzzle TDD exercise.">
-
     <title>{% block title %}Crossword Exercise{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/clue.css' %}"/>
   </head>
 
   <body>
     <!-- Begin page content -->
     <main role="main" class="container">
-      {% block content %}{% endblock %}
+      {% block content %}
+      <div class="clue_container">
+        <div class="clue_header">
+          <h1>Random Clue</h1>
+        </div>
+        <div class="clue-form">
+          <div class="clue">
+            <h2>Information Regarding the Clue</h2>
+          </div>
+          <form>
+            <label for="guess">Take a Guess!</label>
+            <input type="text" name="guess" id="_guess"/>
+            <input type="submit" id="submit-guess"/>
+          </form>
+        </div>
+      </div>
+      {% endblock %}
     </main>
   </body>
 </html>

@@ -3,6 +3,7 @@ from django.test import TestCase, tag
 from django.urls import reverse
 
 from ..models import Clue
+
 from .factories import ClueFactory, EntryFactory
 
 

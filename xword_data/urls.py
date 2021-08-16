@@ -1,7 +1,7 @@
-from . import views
+from .views import DrillView
 from django.urls import path
 
 app_name = 'xword_data'
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', DrillView.as_view())
 ]

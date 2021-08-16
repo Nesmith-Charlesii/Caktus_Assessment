@@ -1,6 +1,5 @@
 import datetime
 import random
-
 import factory
 
 from ..models import Clue, Entry, Puzzle
