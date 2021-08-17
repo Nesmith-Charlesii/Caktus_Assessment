@@ -41,8 +41,16 @@ class DrillView(View):
             return render(request, 'base.html', context)
 
 
-def escape_hatch(request):
-    return HttpResponse("GET")
+def escape_hatch(request, entry_id, clue_id, puzzle_id):
+    entry = Entry.objects.get(id=entry_id)
+    puzzle = Puzzle.objects.get(id=puzzle_id)
+    clue = Clue.objects.get(id=clue_id)
+    context = {
+        'display_clue': clue,
+        'entry': entry,
+        'puzzle': puzzle
+    }
+    return render(request, 'base.html', context)
 
 
 class AnswerView(View):

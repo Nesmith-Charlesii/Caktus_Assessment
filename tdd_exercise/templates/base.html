@@ -35,7 +35,7 @@
               </div>
               <br/>
               <div class="escape-hatch">
-                <button class="btn btn-secondary" id="reveal-button"><a href="{% url 'xword_data:escape-hatch' %}" id="escape-hatch">Reveal</a></button>
+                <button class="btn btn-secondary" id="reveal-button"><a href="{% url 'xword_data:escape-hatch' entry.id display_clue.id puzzle.id %}" id="escape-hatch">Reveal</a></button>
               </div>
             </div>
           </form>
