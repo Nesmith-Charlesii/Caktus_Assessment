@@ -24,7 +24,7 @@
             <p>Word Length: {{entry.entry_text|length}}</p>
             <p>From Puzzle: {{puzzle.title}}</p>
           </div>
-          <form method="POST" action="">
+          <form method="post" action="{% url 'xword_data:reveal_answer' entry.id %}">
             {% csrf_token %}
             <div class="form-group">
               <input class="form-control" type="text" name="guess" id="_guess"/>
