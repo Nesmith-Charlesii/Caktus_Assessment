@@ -67,7 +67,7 @@ form input {
 
 .message-alert {
     position: relative;
-    top: 240px;
+    top: 250px;
     text-align: center;
     font-weight: bold;
     font-family: arial, sans-serif;
@@ -80,4 +80,9 @@ form input {
 .escape-hatch {
     font-family: arial, sans-serif;
     font-size: 1.2rem;
+}
+
+#escape-hatch {
+    text-decoration: none;
+    color: white;
 }

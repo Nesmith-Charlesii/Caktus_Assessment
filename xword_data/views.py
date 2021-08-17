@@ -41,6 +41,10 @@ class DrillView(View):
             return render(request, 'base.html', context)
 
 
+def escape_hatch(request):
+    return HttpResponse("GET")
+
+
 class AnswerView(View):
     def get(self, request):
         return render(request, 'answer.html')
