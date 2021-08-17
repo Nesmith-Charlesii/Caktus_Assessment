@@ -31,7 +31,7 @@ class DrillView(View):
         puzzle = Puzzle.objects.get(id=puzzle_id)
         clue = Clue.objects.get(id=clue_id)
         if guess == entry.entry_text:
-            return HttpResponseRedirect(reverse('xword_data:answer_reveal'))
+            return HttpResponseRedirect(f'/crossword_drill/correct_answer_reveal/{entry.id}/{clue.id}/{puzzle.id}')
         else:
             messages.error(request, 'Answer is incorrect. Give it another go!')
             context = {
@@ -57,5 +57,13 @@ def escape_hatch(request, entry_id, clue_id, puzzle_id):
 
 
 class AnswerView(View):
-    def get(self, request):
-        return render(request, 'answer.html')
+    def get(self, request, entry_id, clue_id, puzzle_id):
+        entry = Entry.objects.get(id=entry_id)
+        puzzle = Puzzle.objects.get(id=puzzle_id)
+        clue = Clue.objects.get(id=clue_id)
+        context = {
+            'display_clue': clue,
+            'entry': entry,
+            'puzzle': puzzle,
+        }
+        return render(request, 'answer.html', context)
