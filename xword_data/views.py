@@ -20,7 +20,8 @@ class DrillView(View):
         context = {
             'display_clue': display_clue,
             'entry': entry,
-            'puzzle': puzzle
+            'puzzle': puzzle,
+            'reveal_click': False
         }
         return render(request, 'base.html', context)
 
@@ -36,7 +37,8 @@ class DrillView(View):
             context = {
                 'display_clue': clue,
                 'entry': entry,
-                'puzzle': puzzle
+                'puzzle': puzzle,
+                'reveal_click': False
             }
             return render(request, 'base.html', context)
 
@@ -48,7 +50,8 @@ def escape_hatch(request, entry_id, clue_id, puzzle_id):
     context = {
         'display_clue': clue,
         'entry': entry,
-        'puzzle': puzzle
+        'puzzle': puzzle,
+        'reveal_click': True
     }
     return render(request, 'base.html', context)
 

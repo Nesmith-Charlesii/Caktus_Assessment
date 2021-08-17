@@ -34,9 +34,15 @@
                 <input class="btn btn-outline-warning" type="submit" id="submit-guess" value="Answer"/>
               </div>
               <br/>
+              {% if reveal_click == False %}
               <div class="escape-hatch">
                 <button class="btn btn-secondary" id="reveal-button"><a href="{% url 'xword_data:escape-hatch' entry.id display_clue.id puzzle.id %}" id="escape-hatch">Reveal</a></button>
               </div>
+              {% else %}
+              <div class="escape-hatch">
+                <h4>{{entry.entry_text}}</h4>
+              </div>
+              {% endif %}
             </div>
           </form>
         </div>
