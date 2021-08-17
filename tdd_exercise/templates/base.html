@@ -33,16 +33,20 @@
               <div class="clue-submit-button">
                 <input class="btn btn-outline-warning" type="submit" id="submit-guess" value="Answer"/>
               </div>
+              <br/>
+              <div class="escape-hatch">
+                <button class="btn btn-outline-warning" id="reveal-button">Reveal</button>
+              </div>
             </div>
           </form>
         </div>
-        <div class="message-alert">
+      </div>
+      <div class="message-alert">
         {% if messages %}
           {% for message in messages %}
             <p>{{message}}</p>
           {% endfor %}
         {% endif %}
-        </div>
       </div>
       {% endblock %}
     </main>
