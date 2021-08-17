@@ -27,8 +27,9 @@ class DrillView(View):
         guess = request.POST['guess']
         entry = Entry.objects.get(id=entry_id)
         if guess == entry.entry_text:
-            return HttpResponseRedirect(reverse('xword_data:index'))
+            return HttpResponseRedirect(reverse('xword_data:answer_reveal'))
 
 
 class AnswerView(View):
-    pass
+    def get(self, request):
+        return render(request, 'answer.html')
