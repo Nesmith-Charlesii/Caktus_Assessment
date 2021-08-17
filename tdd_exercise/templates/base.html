@@ -6,8 +6,10 @@
     <meta name="description" content="Crossword puzzle TDD exercise.">
     <title>{% block title %}Crossword Exercise{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% block css %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/clue.css' %}"/>
+    {% endblock %}
   </head>
 
   <body>
@@ -24,7 +26,7 @@
             <p>Word Length: {{entry.entry_text|length}}</p>
             <p>From Puzzle: {{puzzle.title}}</p>
           </div>
-          <form method="post" action="{% url 'xword_data:reveal_answer' entry.id %}">
+          <form method="post" action="{% url 'xword_data:reveal_answer' entry.id display_clue.id puzzle.id%}">
             {% csrf_token %}
             <div class="form-group">
               <input class="form-control" type="text" name="guess" id="_guess"/>
