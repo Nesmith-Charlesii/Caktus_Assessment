@@ -29,7 +29,7 @@
           <form method="post" action="{% url 'xword_data:reveal_answer' entry.id display_clue.id puzzle.id%}">
             {% csrf_token %}
             <div class="form-group">
-              <input class="form-control" type="text" name="guess" id="_guess"/>
+              <input class="form-control" type="text" name="answer" id="_guess"/>
               <div class="clue-submit-button">
                 <input class="btn btn-outline-warning" type="submit" id="submit-guess" value="Answer"/>
               </div>

@@ -26,7 +26,7 @@ class DrillView(View):
         return render(request, 'base.html', context)
 
     def post(self, request, entry_id, clue_id, puzzle_id):
-        guess = request.POST['guess']
+        guess = request.POST['answer']
         entry = Entry.objects.get(id=entry_id)
         puzzle = Puzzle.objects.get(id=puzzle_id)
         clue = Clue.objects.get(id=clue_id)
@@ -61,9 +61,14 @@ class AnswerView(View):
         entry = Entry.objects.get(id=entry_id)
         puzzle = Puzzle.objects.get(id=puzzle_id)
         clue = Clue.objects.get(id=clue_id)
+        print(clue.id)
+        clues = Clue.objects.filter(entry=entry.id)
+        for clue in clues:
+            print(clue.clue_text)
         context = {
             'display_clue': clue,
             'entry': entry,
             'puzzle': puzzle,
+            'clues': clues
         }
         return render(request, 'answer.html', context)

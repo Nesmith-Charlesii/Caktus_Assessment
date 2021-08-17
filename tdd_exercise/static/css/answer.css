@@ -2,12 +2,56 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
-.additional-data {
+.success-message {
+    font-family: arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-message i {
+    font-size: .7em;
+    background-color: gold;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#congrats {
+    color: green;
+}
+
+.additional-info {
+    display: flex;
+    justify-content: space-around;
+}
+
+.additional-info li {
+    list-style-type: square;
+}
+
+
+.play-again {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+}
+
+#puzzle, #entry, #clue {
+    list-style: none;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#play-again {
+    text-decoration: none;
+    color: white;
+}
+
+#entry-data-table {
+    text-align: center;
+    width: 600px;
 }

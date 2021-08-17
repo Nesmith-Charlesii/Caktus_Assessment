@@ -7,17 +7,61 @@
 
 {% block content %}
 <div class="success-container">
-    <div class="congrats-message">
-        <h1>Congrats! You've guessed the correct answer.</h1>
+    <div class="success-message">
+        <h1><b id="congrats">Congrats!</b> You've guessed <i>{{entry.entry_text}}</i> as the correct answer.</h1>
         <h3>Here's some additional information about the clue:</h3>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
     </div>
-    <div class="additional-data">
-        <button class="btn btn-primary">Play Again?</button>
+        <br/>
+    <div class="additional-info">
+        <div class="drill-info">
+            <ul>
+                <li id="puzzle">Puzzle</li>
+                <hr>
+                <ul>
+                    {% if title != None %}
+                    <li><b>Title</b>: {{puzzle.title}}</li>
+                    {% endif %}
+                    <li><b>Byline</b>: {{puzzle.byline}}</li>
+                    <li><b>Publisher</b>: {{puzzle.publisher}}</li>
+                    <li><b>Date</b>: {{puzzle.date}}</li>
+                </ul>
+                <hr>
+                <li id="clue">Clue</li>
+                <hr>
+                <ul>
+                    <li><b>Clue Given</b>: {{display_clue.clue_text}}</li>
+                </ul>
+                <hr>
+                <li id="entry">Entry</li>
+                <hr>
+                <ul>
+                    <li><b>Answer</b>: {{entry.entry_text}}</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="list-of-occurrences">
+            <table class="table table-dark table-hover" id="entry-data-table">
+                <thead>
+                    <tr>
+                        <th>Clue</th>
+                        <th>Entry</th>
+                        <th>Occurrences</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for clue in clues %}
+                    <tr>
+                        <td>{{clue.clue_text}}</td>
+                        <td>{{entry.entry_text}}</td>
+                        <td>{{entry.entry_text}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="play-again">
+        <button class="btn btn-primary"><a href="{% url 'xword_data:index' %}" id="play-again">Play Again?</a></button>
     </div>
 </div>
 {% endblock %}
