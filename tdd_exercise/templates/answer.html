@@ -49,15 +49,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for clue in clues %}
-                    {% for entry in entries %}
-                        {% if entry.id == clue.entry %}
+                {% for entry in entries %}
                     <tr>
-                        <td>{{entry.entry_text}}</td>
-                        <td>{{clues|length}}</td>
+                        <td>{{entry}}</td>
+                        <td>{{entries.count}}</td>
                     </tr>
-                        {% endif %}
-                    {% endfor %}
                 {% endfor %}
                 </tbody>
             </table>
