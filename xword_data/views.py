@@ -61,14 +61,14 @@ class AnswerView(View):
         entry = Entry.objects.get(id=entry_id)
         puzzle = Puzzle.objects.get(id=puzzle_id)
         clue = Clue.objects.get(id=clue_id)
-        print(clue.id)
-        clues = Clue.objects.filter(entry=entry.id)
-        for clue in clues:
-            print(clue.clue_text)
+        clues = Clue.objects.filter(clue_text=clue.clue_text)
+        entries = Entry.objects.all()
+        print(type(clues))
         context = {
             'display_clue': clue,
             'entry': entry,
             'puzzle': puzzle,
-            'clues': clues
+            'clues': clues,
+            'entries': entries
         }
         return render(request, 'answer.html', context)
