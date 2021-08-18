@@ -63,20 +63,22 @@ class AnswerView(View):
         clue = Clue.objects.get(id=clue_id)
         clues = Clue.objects.filter(clue_text=clue.clue_text)
         entries = Entry.objects.all()
-        hold_entry_set = set()
+        hold_entry_dict = {}
         hold_entry_list = []
-        count = 0
+        count = -1
         for clue in clues:
             for entry in entries:
                 if entry.id == clue.entry:
-                    hold_entry_set.add(entry.entry_text)
+                    count = count + 1
+                    hold_entry_dict[entry.entry_text] = count
                     hold_entry_list.append(entry.entry_text)
         context = {
             'display_clue': clue,
             'entry': entry,
             'puzzle': puzzle,
             'clues': clues,
-            'entries': hold_entry_set
+            'entries': hold_entry_dict,
+            'entry_list': hold_entry_list,
         }
         print(context['entries'])
         print(hold_entry_list)

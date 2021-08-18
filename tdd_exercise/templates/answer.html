@@ -49,11 +49,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for entry in entries %}
+                {% for entry, value in entries.items %}
+                    {% if entry in entry_list %}
                     <tr>
                         <td>{{entry}}</td>
-                        <td>{{entries.count}}</td>
+                        <td>{{value}}</td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
